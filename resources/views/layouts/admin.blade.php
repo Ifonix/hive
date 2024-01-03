@@ -33,7 +33,7 @@
     <meta property="og:title" content="{{ $metatitle }}">
     <meta property="og:description" content="{{ $metadesc }}">
     <meta property="og:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -41,7 +41,7 @@
     <meta property="twitter:title" content="{{ $metatitle }}">
     <meta property="twitter:description" content="{{ $metadesc }}">
     <meta property="twitter:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
 
     <meta charset="utf-8" />
@@ -377,14 +377,14 @@
                     .setAttribute("href", "{{ asset('assets/css/style-dark.css') }}");
                 document
                     .querySelector(".m-header > .b-brand > .logo-lg")
-                    .setAttribute("src", "{{ asset('/storage/uploads/logo/logo-light.png') }}");
+                    .setAttribute("src", "{{ asset('/uploads/logo/logo-light.png') }}");
             } else {
                 document
                     .querySelector("#main-style-link")
                     .setAttribute("href", "{{ asset('assets/css/style.css') }}");
                 document
                     .querySelector(".m-header > .b-brand > .logo-lg")
-                    .setAttribute("src", "{{ asset('/storage/uploads/logo/logo-dark.png') }}");
+                    .setAttribute("src", "{{ asset('/uploads/logo/logo-dark.png') }}");
             }
         });
 

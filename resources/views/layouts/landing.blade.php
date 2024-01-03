@@ -40,7 +40,7 @@
     <meta property="og:title" content="{{ $metatitle }}">
     <meta property="og:description" content="{{ $metadesc }}">
     <meta property="og:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -48,7 +48,7 @@
     <meta property="twitter:title" content="{{ $metatitle }}">
     <meta property="twitter:description" content="{{ $metadesc }}">
     <meta property="twitter:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
 
     <!-- Meta -->

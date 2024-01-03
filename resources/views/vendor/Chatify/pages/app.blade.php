@@ -138,11 +138,11 @@
                                 <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i> </a>
                                 @if (!empty($user->avatar))
                                     <div class="avatar av-s header-avatar"
-                                        style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url('{{ asset('/storage/avatars/' . $user->avatar) }}');">
+                                        style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url('{{ asset('/avatars/' . $user->avatar) }}');">
                                     </div>
                                 @else
                                     <div class="avatar av-s header-avatar"
-                                        style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url('{{ asset('/storage/avatars/avatar.png') }}');">
+                                        style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;background-image: url('{{ asset('/avatars/avatar.png') }}');">
                                     </div>
                                 @endif
                                 <a href="#" class="user-name">{{ config('chatify.name') }}</a>

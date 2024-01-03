@@ -60,7 +60,7 @@ $profile=\App\Models\Utility::get_file('uploads/avatar/');
                                         <div class="avatar-group">
                                             @foreach($asset->users($asset->employee_id) as $user)
                                                 <a href="#" class="avatar rounded-circle avatar-sm avatar-group">
-                                                    <img alt="" @if(!empty($user->avatar)) src="{{$profile.'/'.$user->avatar}}" @else src="{{asset('/storage/uploads/avatar/avatar.png')}}" @endif data-original-title="{{(!empty($user)?$user->name:'')}}" data-bs-toggle="tooltip" height="30px" width="30px" style="border-radius:50%                " data-original-title="{{(!empty($user)?$user->name:'')}}" class="">
+                                                    <img alt="" @if(!empty($user->avatar)) src="{{$profile.'/'.$user->avatar}}" @else src="{{asset('/uploads/avatar/avatar.png')}}" @endif data-original-title="{{(!empty($user)?$user->name:'')}}" data-bs-toggle="tooltip" height="30px" width="30px" style="border-radius:50%                " data-original-title="{{(!empty($user)?$user->name:'')}}" class="">
                                                 </a>
                                             @endforeach
                                         </div>

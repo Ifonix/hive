@@ -1543,7 +1543,9 @@ class Utility extends Model
                 );
             }
 
-            return \Storage::disk($settings['storage_setting'])->url($path);
+            #return \Storage::disk($settings['storage_setting'])->url($path);
+            return $path;
+            
         } catch (\Throwable $th) {
             return '';
         }

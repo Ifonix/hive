@@ -37,7 +37,7 @@
     <meta property="og:title" content="{{ $metatitle }}">
     <meta property="og:description" content="{{ $metadesc }}">
     <meta property="og:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -45,7 +45,7 @@
     <meta property="twitter:title" content="{{ $metatitle }}">
     <meta property="twitter:description" content="{{ $metadesc }}">
     <meta property="twitter:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
 
     <link rel="icon"
@@ -81,7 +81,7 @@
             </nav>
             <section class="job-banner">
                 <div class="job-banner-bg">
-                    <img src="{{ asset('/storage/uploads/job/banner.png') }}" alt="">
+                    <img src="{{ asset('/uploads/job/banner.png') }}" alt="">
                 </div>
                 <div class="container">
                     <div class="job-banner-content text-center text-white">
@@ -109,7 +109,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 job-card">
                                 <div class="job-card-body">
                                     <div class="d-flex mb-3 align-items-center justify-content-between ">
-                                        <img src="{{ asset('/storage/uploads/job/figma.png') }}" alt="">
+                                        <img src="{{ asset('/uploads/job/figma.png') }}" alt="">
                                         @if (!empty($job->branches) ? $job->branches->name : '')
                                             <span>{{ !empty($job->branches) ? $job->branches->name : '' }} <i
                                                     class="ti ti-map-pin ms-1"></i></span>

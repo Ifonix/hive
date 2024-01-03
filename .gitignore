@@ -1,3 +1,5 @@
 /.idea
 /.vscode
-/vendor/srmklive
+/vendor
+/storage/framework
+/storage/logs

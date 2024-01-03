@@ -40,7 +40,7 @@
                         <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago" data-original-title="" title="">
                             <div>
                                 <a href="#" class="avatar rounded-circle avatar-sm">
-                                    <img src="{{!empty($jobApplication->profile)? asset('/storage/uploads/job/profile/'.$jobApplication->profile):asset('/storage/uploads/avatar/avatar.png')}}" class="">
+                                    <img src="{{!empty($jobApplication->profile)? asset('/uploads/job/profile/'.$jobApplication->profile):asset('/uploads/avatar/avatar.png')}}" class="">
                                 </a>
                             </div>
                             <div class="flex-fill ml-3">

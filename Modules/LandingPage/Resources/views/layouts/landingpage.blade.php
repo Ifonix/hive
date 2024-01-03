@@ -20,6 +20,7 @@
     }else {
         $setting['SITE_RTL'] = 'off';
     }
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +41,7 @@
     <meta property="og:title" content="{{ $metatitle }}">
     <meta property="og:description" content="{{ $metadesc }}">
     <meta property="og:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -48,7 +49,7 @@
     <meta property="twitter:title" content="{{ $metatitle }}">
     <meta property="twitter:description" content="{{ $metadesc }}">
     <meta property="twitter:image"
-        content="{{ isset($meta_logo) && !empty(asset('storage/uploads/meta/' . $meta_logo)) ? asset('storage/uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
+        content="{{ isset($meta_logo) && !empty(asset('uploads/meta/' . $meta_logo)) ? asset('uploads/meta/' . $meta_logo) : 'hrmgo.png' }}">
 
     <!-- Favicon icon -->
     {{-- <link rel="icon" href="{{ $sup_logo.'/'. $adminSettings['company_favicon'] }}" type="image/x-icon" /> --}}
@@ -57,27 +58,31 @@
         type="image/x-icon" />
 
     <!-- font css -->
-    <link rel="stylesheet" href=" {{ Module::asset('LandingPage:Resources/assets/fonts/tabler-icons.min.css') }}" />
-    <link rel="stylesheet" href=" {{ Module::asset('LandingPage:Resources/assets/fonts/feather.css') }}" />
-    <link rel="stylesheet" href="  {{ Module::asset('LandingPage:Resources/assets/fonts/fontawesome.css') }}" />
-    <link rel="stylesheet" href="{{ Module::asset('LandingPage:Resources/assets/fonts/material.css') }}" />
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/tabler-icons.min.css') }}" />
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/feather.css') }}" />
+    <link rel="stylesheet" href="  {{ asset('assets/landingpage/fonts/fontawesome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/landingpage/fonts/material.css') }}" />
 
-
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/tabler-icons.min.css') }}" />
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/feather.css') }}" />
+    <link rel="stylesheet" href="  {{ asset('assets/landingpage/fonts/fontawesome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/landingpage/fonts/material.css') }}" />
+    <link rel="stylesheet" href="{{ asset('js/app.js') }}"/>
 
     <!-- vendor css -->
-    <link rel="stylesheet" href="  {{ Module::asset('LandingPage:Resources/assets/css/style.css') }}" />
-    <link rel="stylesheet" href=" {{ Module::asset('LandingPage:Resources/assets/css/customizer.css') }}" />
-    <link rel="stylesheet" href=" {{ Module::asset('LandingPage:Resources/assets/css/landing-page.css') }}" />
-    <link rel="stylesheet" href=" {{ Module::asset('LandingPage:Resources/assets/css/custom.css') }}" />
+    <link rel="stylesheet" href="  {{ asset('assets/landingpage/css/style.css') }}" />
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/css/customizer.css') }}" />
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/css/landing-page.css') }}" />
+    <link rel="stylesheet" href=" {{ asset('assets/landingpage/css/custom.css') }}" />
 
     @if ($SITE_RTL == 'on')
-        <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/landingpage/css/style-rtl.css') }}">
     @endif
 
     @if ($setting['cust_darklayout'] == 'on')
-        <link rel="stylesheet" href="{{ asset('assets/css/style-dark.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/landingpage/css/style-dark.css') }}">
     @else
-        <link rel="stylesheet" href="{{ Module::asset('LandingPage:Resources/assets/css/style.css') }}"
+        <link rel="stylesheet" href="{{ asset('assets/landingpage/css/style.css') }}"
             id="main-style-link">
     @endif
 
@@ -710,9 +715,9 @@
 <!-- [ Footer ] end -->
 <!-- Required Js -->
 
-<script src="{{ Module::asset('LandingPage:Resources/assets/js/plugins/popper.min.js') }}"></script>
-<script src="{{ Module::asset('LandingPage:Resources/assets/js/plugins/bootstrap.min.js') }}"></script>
-<script src="{{ Module::asset('LandingPage:Resources/assets/js/plugins/feather.min.js') }}"></script>
+<script src="{{ asset('assets/landingpage/js/plugins/popper.min.js') }}"></script>
+<script src="{{ asset('assets/landingpage/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/landingpage/js/plugins/feather.min.js') }}"></script>
 
 <script>
     // Start [ Menu hide/show on scroll ]
