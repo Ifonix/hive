@@ -3,3 +3,4 @@
 /vendor
 /storage/framework
 /storage/logs
+/node_modules
