@@ -58,31 +58,31 @@
         type="image/x-icon" />
 
     <!-- font css -->
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/tabler-icons.min.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/feather.css') }}" />
-    <link rel="stylesheet" href="  {{ asset('assets/landingpage/fonts/fontawesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/landingpage/fonts/material.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/fonts/tabler-icons.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/fonts/feather.css') }}" />
+    <link rel="stylesheet" type="text/css" href="  {{ asset('assets/landingpage/fonts/fontawesome.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/landingpage/fonts/material.css') }}" />
 
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/tabler-icons.min.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/fonts/feather.css') }}" />
-    <link rel="stylesheet" href="  {{ asset('assets/landingpage/fonts/fontawesome.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/landingpage/fonts/material.css') }}" />
-    <link rel="stylesheet" href="{{ asset('js/app.js') }}"/>
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/fonts/tabler-icons.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/fonts/feather.css') }}" />
+    <link rel="stylesheet" type="text/css" href="  {{ asset('assets/landingpage/fonts/fontawesome.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/landingpage/fonts/material.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/app.js') }}"/>
 
     <!-- vendor css -->
-    <link rel="stylesheet" href="  {{ asset('assets/landingpage/css/style.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/css/customizer.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/css/landing-page.css') }}" />
-    <link rel="stylesheet" href=" {{ asset('assets/landingpage/css/custom.css') }}" />
+    <link rel="stylesheet" type="text/css" href="  {{ asset('assets/landingpage/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/css/customizer.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/css/landing-page.css') }}" />
+    <link rel="stylesheet" type="text/css" href=" {{ asset('assets/landingpage/css/custom.css') }}" />
 
     @if ($SITE_RTL == 'on')
         <link rel="stylesheet" href="{{ asset('assets/landingpage/css/style-rtl.css') }}">
     @endif
 
     @if ($setting['cust_darklayout'] == 'on')
-        <link rel="stylesheet" href="{{ asset('assets/landingpage/css/style-dark.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/landingpage/css/style-dark.css') }}">
     @else
-        <link rel="stylesheet" href="{{ asset('assets/landingpage/css/style.css') }}"
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/landingpage/css/style.css') }}"
             id="main-style-link">
     @endif
 
