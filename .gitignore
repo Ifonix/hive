@@ -4,3 +4,5 @@
 /storage/framework
 /storage/logs
 .env
+/node_modules
+package-lock.json
