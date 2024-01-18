@@ -5,9 +5,9 @@
     $languages = \App\Models\Utility::languages();
     $profile = \App\Models\Utility::get_file('uploads/avatar/');
     $unseenCounter = App\Models\ChMessage::where('to_id', Auth::user()->id)
-        ->where('seen', 0)
+        ->where('seen', true)
         ->count();
-    $unseen_count = DB::select('SELECT from_id, COUNT(*) AS totalmasseges FROM ch_messages WHERE seen = 0 GROUP BY from_id');
+    $unseen_count = DB::select('SELECT from_id, COUNT(*) AS totalmasseges FROM ch_messages WHERE seen = true GROUP BY from_id');
 @endphp
 
 
