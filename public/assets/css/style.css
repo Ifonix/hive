@@ -23,7 +23,8 @@ File: style.css
     --bs-red: #ff3a6e;
     --bs-orange: #fd7e14;
     --bs-yellow: #ffa21d;
-    --bs-green: #6fd943;
+    --bs-green: hsl(102, 66%, 56%);
+    --bs-blue:  #2E9DEE
     --bs-teal: #20c997;
     --bs-cyan: #3ec9d6;
     --bs-white: #ffffff;
@@ -16178,7 +16179,9 @@ body.theme-3 {
 }
 
 body.theme-3 .bg-primary {
-    background: linear-gradient(141.55deg, #6FD943 3.46%, #6FD943 99.86%), #6FD943 !important;
+    /*background: linear-gradient(141.55deg, #6FD943 3.46%, #6FD943 99.86%), #6FD943 !important;*/
+    background: linear-gradient(141.55deg, #2E9DEE 3.46%, #2E9DEE 99.86%), #2E9DEE! important;
+}
 }
 
 body.theme-3 .dash-header .drp-language .drp-text,
@@ -16219,7 +16222,8 @@ body.theme-3 .dash-sidebar.light-sidebar .dash-item .dash-submenu .dash-item.act
   body.theme-3 .dash-sidebar .dash-item .dash-submenu .dash-item:active > .dash-link,
   body.theme-3 .dash-sidebar .dash-item .dash-submenu .dash-item:focus > .dash-link,
   body.theme-3 .dash-sidebar .dash-item .dash-submenu .dash-item:hover > .dash-link {
-    color: #6FD943;
+   /* color: #6FD943;*/
+   color:#2E9DEE ;
 }
 
 body.theme-3 a:not([class]) {
