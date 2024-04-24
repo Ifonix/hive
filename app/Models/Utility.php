@@ -121,7 +121,7 @@ class Utility extends Model
             "google_clender_id" => "",
             "google_calender_json_file" => "",
             "is_enabled" => "",
-            "email_verification" => "",
+            "email_verification" => "on",
             // "seo_is_enabled" => "",
             "meta_title" => "",
             "meta_image" => "",
@@ -137,14 +137,14 @@ class Utility extends Model
             'contactus_url' => '#',
             'chatgpt_key' => '',
             'enable_chatgpt' => '',
-            'mail_driver' => '',
-            'mail_host' => '',
-            'mail_port' => '',
-            'mail_username' => '',
-            'mail_password' => '',
+            'mail_driver' => env('MAIL_DRIVER'),
+            'mail_host' => env('MAIL_HOST'),
+            'mail_port' => env('MAIL_PORT'),
+            'mail_username' => env('MAIL_USERNAME'),
+            'mail_password' => env('MAIL_PASSWORD'),
             'mail_encryption' => '',
-            'mail_from_address' => '',
-            'mail_from_name' => '',
+            'mail_from_address' => env('MAIL_FROM_ADDRESS'),
+            'mail_from_name' => env('MAIL_FROM_NAME'),
             'timezone' => '',
             'pusher_app_id' => '',
             'pusher_app_key' => '',
@@ -1545,7 +1545,7 @@ class Utility extends Model
 
             #return \Storage::disk($settings['storage_setting'])->url($path);
             return $path;
-            
+
         } catch (\Throwable $th) {
             return '';
         }
@@ -2294,18 +2294,18 @@ class Utility extends Model
             $data->where('created_by', '=', 1);
             $data = $data->get();
         }
-        
+
         $settings = [
             'pusher_app_id' => '',
             'pusher_app_key' => '',
             'pusher_app_secret' => '',
             'pusher_app_cluster' => '',
         ];
-        
+
         foreach ($data as $row) {
             $settings[$row->name] = $row->value;
         }
-        
+
         return $settings;
     }
 
