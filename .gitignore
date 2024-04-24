@@ -3,3 +3,10 @@
 /vendor
 /storage/framework
 /storage/logs
+.env
+/node_modules
+package-lock.json
+/public/css
+/public/css/*
+/public/js
+/public/js/*
