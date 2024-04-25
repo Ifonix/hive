@@ -10,8 +10,8 @@
                 </div>
                 @error('name')
                 <span class="invalid-name" role="alert">
-                        <strong class="text-danger">{{ $message }}</strong>
-                    </span>
+                    <strong class="text-danger">{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>

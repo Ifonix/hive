@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bank;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Designation;
@@ -64,10 +65,11 @@ class EmployeeController extends Controller
             $branches         = Branch::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $departments      = Department::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $designations     = Designation::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+            $aBanks           = Bank::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $employees        = User::where('created_by', \Auth::user()->creatorId())->get();
             $employeesId      = \Auth::user()->employeeIdFormat($this->employeeNumber());
 
-            return view('employee.create', compact('employees', 'employeesId', 'departments', 'designations', 'documents', 'branches', 'company_settings'));
+            return view('employee.create', compact('employees', 'employeesId', 'departments', 'designations', 'documents', 'branches', 'company_settings', 'aBanks'));
         } else {
             return redirect()->back()->with('error', __('Permission denied.'));
         }
@@ -75,6 +77,7 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+//        dd($request->all());
         if (\Auth::user()->can('Create Employee')) {
             $validator = \Validator::make(
                 $request->all(),
@@ -87,6 +90,7 @@ class EmployeeController extends Controller
                     'email' => 'required|unique:users',
                     'password' => 'required',
                     'branch_id' => 'required',
+                    'bank_id' => 'required',
                     'department_id' => 'required',
                     'designation_id' => 'required',
                     'document.*' => 'required',
@@ -182,7 +186,7 @@ class EmployeeController extends Controller
                     'documents' => $document_implode,
                     'account_holder_name' => $request['account_holder_name'],
                     'account_number' => $request['account_number'],
-                    'bank_name' => $request['bank_name'],
+                    'bank_id' => $request['bank_id'],
                     'bank_identifier_code' => $request['bank_identifier_code'],
                     'branch_location' => $request['branch_location'],
                     'tax_payer_id' => $request['tax_payer_id'],
