@@ -27,6 +27,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\BankController;
 use App\Http\Controllers\AwardTypeController;
 use App\Http\Controllers\TerminationController;
 use App\Http\Controllers\TerminationTypeController;
@@ -447,6 +448,13 @@ Route::group(['middleware' => ['verified']], function () {
         ]
     );
     Route::resource('holiday', HolidayController::class)->middleware(
+        [
+            'auth',
+            'XSS',
+        ]
+    );
+
+    Route::resource('bank', BankController::class)->middleware(
         [
             'auth',
             'XSS',

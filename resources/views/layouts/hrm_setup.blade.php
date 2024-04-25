@@ -148,5 +148,14 @@
         </a>
         @endcan
 
+        {{-- New items goes here --}}
+        {{-- TODO:: Need to add permisions for this links --}}
+        @can('Manage Branch')
+            <a href="{{ route('bank.index') }}"
+               class="list-group-item list-group-item-action border-0 {{ request()->is('bank*') ? 'active' : '' }}">{{ __('Bank') }}
+                <div class="float-end"><i class="ti ti-chevron-right"></i></div>
+            </a>
+        @endcan
+
     </div>
 </div>
