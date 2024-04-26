@@ -34,7 +34,7 @@ class CreateEmployeesTable extends Migration
 
             $table->string('account_holder_name')->nullable();
             $table->string('account_number')->nullable();
-            $table->string('bank_name')->nullable();
+            $table->bigInteger('bank_id')->unsigned();
             $table->string('bank_identifier_code')->nullable();
             $table->string('branch_location')->nullable();
             $table->string('tax_payer_id')->nullable();
@@ -44,6 +44,8 @@ class CreateEmployeesTable extends Migration
             $table->integer('is_active')->default('1');
             $table->integer('created_by');
             $table->timestamps();
+
+            $table->foreign('bank_id')->references('id')->on('banks')->onDelete('set null');
         }
         );
     }
