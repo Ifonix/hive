@@ -261,10 +261,11 @@ class EmployeeController extends Controller
             $branches     = Branch::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $departments  = Department::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $designations = Designation::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
+            $aBanks       = Bank::where('created_by', \Auth::user()->creatorId())->get()->pluck('name', 'id');
             $employee     = Employee::find($id);
             $employeesId  = \Auth::user()->employeeIdFormat($employee->employee_id);
 
-            return view('employee.edit', compact('employee', 'employeesId', 'branches', 'departments', 'designations', 'documents'));
+            return view('employee.edit', compact('employee', 'employeesId', 'branches', 'departments', 'designations', 'documents', 'aBanks'));
         } else {
             return redirect()->back()->with('error', __('Permission denied.'));
         }
@@ -716,7 +717,7 @@ class EmployeeController extends Controller
             'start_time' => !empty($settings['company_start_time']) ? $settings['company_start_time'] : '',
             'end_time' => !empty($settings['company_end_time']) ? $settings['company_end_time'] : '',
             'total_hours' => $result,
-            //         
+            //
 
         ];
         $joiningletter->content = JoiningLetter::replaceVariable($joiningletter->content, $obj);

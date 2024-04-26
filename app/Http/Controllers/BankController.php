@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bank;
 use App\Models\Branch;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class BankController extends Controller
@@ -78,24 +79,71 @@ class BankController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Bank $bank)
     {
-        //
+        if (\Auth::user()->can('Edit Branch')) {
+            if ($bank->created_by == \Auth::user()->creatorId()) {
+
+                return view('bank.edit', compact('bank'));
+            } else {
+                return response()->json(['error' => __('Permission denied.')], 401);
+            }
+        } else {
+            return response()->json(['error' => __('Permission denied.')], 401);
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Bank $bank)
     {
-        //
+        if (\Auth::user()->can('Edit Branch')) {
+            if ($bank->created_by == \Auth::user()->creatorId()) {
+                $validator = \Validator::make(
+                    $request->all(),
+                    [
+                        'name' => 'required',
+                    ]
+                );
+                if ($validator->fails()) {
+                    $messages = $validator->getMessageBag();
+
+                    return redirect()->back()->with('error', $messages->first());
+                }
+
+                $bank->name = $request->name;
+                $bank->save();
+
+                return redirect()->route('bank.index')->with('success', __('Bank successfully updated.'));
+            } else {
+                return redirect()->back()->with('error', __('Permission denied.'));
+            }
+        } else {
+            return redirect()->back()->with('error', __('Permission denied.'));
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Bank $bank)
     {
-        //
+        if (\Auth::user()->can('Delete Branch')) {
+            if ($bank->created_by == \Auth::user()->creatorId()) {
+                $employee     = Employee::where('bank_id', $bank->id)->get();
+                if (count($employee) == 0) {
+                    $bank->delete();
+                } else {
+                    return redirect()->route('bank.index')->with('error', __('This bank has employees. Please remove the employee from this bank.'));
+                }
+
+                return redirect()->route('bank.index')->with('success', __('Bank successfully deleted.'));
+            } else {
+                return redirect()->back()->with('error', __('Permission denied.'));
+            }
+        } else {
+            return redirect()->back()->with('error', __('Permission denied.'));
+        }
     }
 }
