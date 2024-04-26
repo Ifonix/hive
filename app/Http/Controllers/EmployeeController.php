@@ -155,7 +155,7 @@ class EmployeeController extends Controller
                     ]
                 );
                 $user->save();
-                $user->assignRole('Employee');
+                $user->assignRole('employee');
             } else {
                 return redirect()->back()->with('error', __('Your employee limit is over, Please upgrade plan.'));
             }
@@ -505,7 +505,7 @@ class EmployeeController extends Controller
                 $user->created_by = \Auth::user()->creatorId();
                 $user->email_verified_at = date("Y-m-d H:i:s");
                 $user->save();
-                $user->assignRole('Employee');
+                $user->assignRole('employee');
                 $employeeData = new Employee();
                 $employeeData->employee_id      = $this->employeeNumber();
                 $employeeData->user_id             = $user->id;
