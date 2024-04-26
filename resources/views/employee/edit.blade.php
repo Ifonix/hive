@@ -253,9 +253,10 @@
 
                                         </div>
                                         <div class="form-group col-md-6">
-                                            {!! Form::label('bank_name', __('Bank Name'), ['class' => 'form-label']) !!}
-                                            {!! Form::text('bank_name', null, ['class' => 'form-control']) !!}
-
+                                            {{ Form::label('bank_id', __('Select Bank Name*'), ['class' => 'form-label']) }}
+                                            <div class="form-icon-user">
+                                                {{ Form::select('bank_id', $aBanks, null, ['class' => 'form-control branch_id', 'required' => 'required', 'placeholder' => 'Select Bank Name', 'id' => 'bank_id', 'required' => 'required']) }}
+                                            </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             {!! Form::label('bank_identifier_code', __('Bank Identifier Code'), ['class' => 'form-label']) !!}
