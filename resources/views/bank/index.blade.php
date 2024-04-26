@@ -56,7 +56,7 @@
 
                                             @can('Delete Branch')
                                                 <div class="action-btn bg-danger ms-2">
-                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['branch.destroy', $bank->id], 'id' => 'delete-form-' . $bank->id]) !!}
+                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['bank.destroy', $bank->id], 'id' => 'delete-form-' . $bank->id]) !!}
                                                     <a href="#" class="mx-3 btn btn-sm  align-items-center bs-pass-para"
                                                        data-bs-toggle="tooltip" title="" data-bs-original-title="Delete"
                                                        aria-label="Delete"><i
