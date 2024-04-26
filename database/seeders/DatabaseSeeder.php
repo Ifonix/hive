@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             $this->call(PlansTableSeeder::class);
             $this->call(NotificationSeeder::class);
             $this->call(AiTemplateSeeder::class);
+            $this->call(HrmSetupSeeder::class);
         //} else {
             Utility::languagecreate();
         //}

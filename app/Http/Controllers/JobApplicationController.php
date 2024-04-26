@@ -514,7 +514,7 @@ class JobApplicationController extends Controller
                 ]
             );
             $user->save();
-            $user->assignRole('Employee');
+            $user->assignRole('employee');
         } else {
             return redirect()->back()->with('error', __('Your employee limit is over, Please upgrade plan.'));
         }
