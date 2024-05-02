@@ -654,14 +654,22 @@ class SettingsController extends Controller
                 }
 
 
-                \DB::insert(
-                    'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
+//                \DB::insert(
+//                    'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
+//                    [
+//                        $logoName,
+//                        'company_logo',
+//                        \Auth::user()->creatorId(),
+//                    ]
+//                );
+                DB::table('settings')->upsert(
                     [
-                        $logoName,
-                        'company_logo',
-                        \Auth::user()->creatorId(),
-                    ]
+                        ['value' => $logoName, 'name' => 'company_logo', 'created_by' => \Auth::user()->creatorId()]
+                    ],
+                    ['name', 'created_by'],
+                    ['value']
                 );
+
             }
 
 
@@ -733,7 +741,6 @@ class SettingsController extends Controller
             if (!empty($request->title_text) || !empty($request->metakeyword) || !empty($request->metadesc) || !empty($request->theme_color) || !empty($request->cust_theme_bg) || !empty($request->cust_darklayout) || !empty($request->SITE_RTL)) {
                 $post = $request->all();
 
-
                 if (!isset($request->cust_darklayout)) {
                     $post['cust_darklayout'] = 'off';
                 }
@@ -750,16 +757,21 @@ class SettingsController extends Controller
                 unset($post['_token'], $post['company_logo'], $post['company_small_logo'], $post['company_logo_light'], $post['company_favicon']);
 
                 $settings = Utility::settings();
+
                 foreach ($post as $key => $data) {
                     if (in_array($key, array_keys($settings)) && !empty($data)) {
-                        \DB::insert(
-                            'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
-                            [
-                                $data,
-                                $key,
-                                \Auth::user()->creatorId(),
-                            ]
-                        );
+//                        \DB::insert(
+//                            'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
+//                            [
+//                                $data,
+//                                $key,
+//                                \Auth::user()->creatorId(),
+//                            ]
+//                        );
+                        DB::table('settings')->upsert([
+                            ['value' => $data, 'name' => $key, 'created_by' => \Auth::user()->creatorId()]
+                        ], ['name', 'created_by'], ['value']);
+
                     }
                 }
             }
