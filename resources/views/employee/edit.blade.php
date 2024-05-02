@@ -170,7 +170,8 @@
                 </div>
                 @if (\Auth::user()->type != 'employee')
                     <div class="row">
-                        <div class="col-md-6 ">
+                        {{-- Hide for now --}}
+                        <div class="col-md-6 " style="display: none">
                             <div class="card em-card">
                                 <div class="card-header">
                                     <h5>{{ __('Document') }}</h5>
@@ -212,7 +213,7 @@
                                                         </label>
                                                         @php
                                                             $logo = \App\Models\Utility::get_file('uploads/document/');
-                                                            
+
                                                         @endphp
                                                         {{-- <a href="#"><p class="{{ $document->id . '_filename' }} "></p></a> --}}
                                                         <img id="{{ 'blah' . $key }}"
@@ -277,7 +278,8 @@
                     </div>
                 @else
                     <div class="row">
-                        <div class="col-md-6 ">
+                        {{-- Hide for now --}}
+                        <div class="col-md-6 " style="display: none">
                             <div class="employee-detail-wrap">
                                 <div class="card em-card">
                                     <div class="card-header">
@@ -288,7 +290,7 @@
                                             @php
                                                 $employeedoc = $employee->documents()->pluck('document_value', __('document_id'));
                                                 $logo = \App\Models\Utility::get_file('uploads/document/');
-                                                
+
                                             @endphp
                                             @foreach ($documents as $key => $document)
                                                 <div class="col-md-12">

@@ -150,7 +150,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 ">
+                    {{-- Hide for now --}}
+                    <div class="col-md-6" style="display: none">
                         <div class="card em-card">
                             <div class="card-header">
                                 <h6>{{ __('Document') }}</h6>
