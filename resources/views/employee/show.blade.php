@@ -181,7 +181,8 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-12 col-md-6">
+                {{-- Hide for now --}}
+                <div class="col-sm-12 col-md-6" style="display: none">
 
                     <div class="card ">
                         <div class="card-body employee-detail-body fulls-card emp-card">
