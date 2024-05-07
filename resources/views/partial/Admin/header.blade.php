@@ -35,8 +35,11 @@
                 <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
                     <span class="theme-avtar">
+                        @php
+                            $sAvatarImgLink = !empty($users->avatar) ? $profile . $users->avatar : $profile . '/avatar.png';
+                        @endphp
                         <img alt="#"
-                            src="{{ !empty($users->avatar) ? $profile . $users->avatar : $profile . '/avatar.png' }}"
+                            src="{{ url($sAvatarImgLink) }}"
                             class="header-avtar" style="width: 100%; border-radius:50%">
                     </span>
                     <span class="hide-mob ms-2"> {{ 'Hi, ' . Auth::user()->name . '!' }}
