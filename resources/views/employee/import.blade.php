@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12 mb-6">
             <label for="file" class="form-label">Download sample product CSV file</label>
-            <a href="{{ asset(Storage::url('uploads/sample')) . '/sample-employee2.csv' }}"
+            <a href="{{ asset('uploads/sample/sample-employee2.csv') }}"
                 class="btn btn-sm btn-primary ">
                 <i class="ti ti-download"></i> {{ __('Download') }}
             </a>
