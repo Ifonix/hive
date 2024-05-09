@@ -20,8 +20,8 @@ class CreateLoansTable extends Migration
             $table->string('title');
             $table->float('amount', 15,2);
             $table->string('type')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->string('reason');
             $table->integer('created_by');
             $table->timestamps();
