@@ -30,7 +30,7 @@ class LoanController extends Controller
                                    'amount' => 'required',
                                 //    'start_date' => 'required',
                                 //    'end_date' => 'required',
-                                   'reason' => 'required',
+                                   'reason' => 'required|max:1000',
                                ]
             );
             if($validator->fails())
@@ -109,7 +109,7 @@ class LoanController extends Controller
                                        'amount' => 'required',
                                     //    'start_date' => 'required',
                                     //    'end_date' => 'required',
-                                       'reason' => 'required',
+                                       'reason' => 'required|max:1000',
                                    ]
                 );
                 if($validator->fails())
