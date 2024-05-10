@@ -25,19 +25,19 @@
         <div class="col-md-4">
             <div class="form-group">
                 {{ Form::label('number_of_days', __('Number Of Days'), ['class' => 'col-form-label']) }}
-                {{ Form::number('number_of_days', null, ['class' => 'form-control ', 'required' => 'required','step' => '0.01']) }}
+                {{ Form::number('number_of_days', null, ['class' => 'form-control ', 'required' => 'required','step' => '0.01', 'min' => '0']) }}
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 {{ Form::label('hours', __('Hours'), ['class' => 'col-form-label']) }}
-                {{ Form::number('hours', null, ['class' => 'form-control ', 'required' => 'required','step' => '0.01']) }}
+                {{ Form::number('hours', null, ['class' => 'form-control ', 'required' => 'required','step' => '0.01', 'min' => '0']) }}
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 {{ Form::label('rate', __('Rate'), ['class' => 'col-form-label']) }}
-                {{ Form::number('rate', null, ['class' => 'form-control ', 'required' => 'required','step' => '0.01']) }}
+                {{ Form::number('rate', null, ['class' => 'form-control ', 'required' => 'required','step' => '0.01', 'min' => '0']) }}
             </div>
         </div>
     </div>
