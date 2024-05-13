@@ -23,15 +23,15 @@
         </div>
         <div class="form-group col-md-4">
             {{ Form::label('number_of_days', __('Number of days'), ['class' => 'col-form-label']) }}
-            {{ Form::number('number_of_days', null, ['class' => 'form-control ','required' => 'required','step' => '0.01']) }}
+            {{ Form::number('number_of_days', null, ['class' => 'form-control ','required' => 'required','step' => '0.01', 'min' => '0']) }}
         </div>
         <div class="form-group col-md-4">
             {{ Form::label('hours', __('Hours'), ['class' => 'col-form-label']) }}
-            {{ Form::number('hours', null, ['class' => 'form-control ', 'required' => 'required', 'step' => '0.01']) }}
+            {{ Form::number('hours', null, ['class' => 'form-control ', 'required' => 'required', 'step' => '0.01', 'min' => '0']) }}
         </div>
         <div class="form-group col-md-4">
             {{ Form::label('rate', __('Rate'), ['class' => 'col-form-label']) }}
-            {{ Form::number('rate', null, ['class' => 'form-control ', 'required' => 'required', 'step' => '0.01']) }}
+            {{ Form::number('rate', null, ['class' => 'form-control ', 'required' => 'required', 'step' => '0.01', 'min' => '0']) }}
         </div>
     </div>
 </div>

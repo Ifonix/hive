@@ -7,13 +7,13 @@
 <div class="modal-body">
 
     @if ($plan->enable_chatgpt == 'on')
-    <div class="card-footer text-end">
-        <a href="#" class="btn btn-sm btn-primary" data-size="medium" data-ajax-popup-over="true"
-            data-url="{{ route('generate', ['loan']) }}" data-bs-toggle="tooltip" data-bs-placement="top"
-            title="{{ __('Generate') }}" data-title="{{ __('Generate Content With AI') }}">
-            <i class="fas fa-robot"></i>{{ __(' Generate With AI') }}
-        </a>
-    </div>
+        <div class="card-footer text-end">
+            <a href="#" class="btn btn-sm btn-primary" data-size="medium" data-ajax-popup-over="true"
+                data-url="{{ route('generate', ['loan']) }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="{{ __('Generate') }}" data-title="{{ __('Generate Content With AI') }}">
+                <i class="fas fa-robot"></i>{{ __(' Generate With AI') }}
+            </a>
+        </div>
     @endif
 
     <div class="row">
@@ -44,7 +44,9 @@
         </div> --}}
         <div class="form-group">
             {{ Form::label('reason', __('Reason'), ['class' => 'col-form-label']) }}
-            {{ Form::textarea('reason', null, ['class' => 'form-control', 'rows' => 3, 'required' => 'required']) }}
+            {{ Form::textarea('reason', null, ['id' => 'reason', 'class' => 'form-control', 'rows' => 3, 'required' => 'required']) }}
+
+            <div id="charCountDiv"><span id="startCount">0</span> of 1000 characters</div>
         </div>
     </div>
 </div>
@@ -53,3 +55,18 @@
     <input type="submit" value="{{ __('Create') }}" class="btn btn-primary">
 </div>
 {{ Form::close() }}
+<script type="text/javascript">
+    let totalLimit = 1000;
+    let reasonTextarea = document.getElementById('reason');
+    let charCountDiv = document.getElementById('charCountDiv');
+    let startCount = document.getElementById('startCount');
+    reasonTextarea.addEventListener('input', function() {
+        let charCount = reasonTextarea.value.length;
+        startCount.innerHTML = charCount
+        if (charCount > totalLimit) {
+            charCountDiv.style.color = 'red';
+        } else {
+            charCountDiv.style.color = '';
+        }
+    });
+</script>

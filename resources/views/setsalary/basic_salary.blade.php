@@ -7,7 +7,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('salary', __('Salary'), ['class' => 'col-form-label']) }}
-            {{ Form::number('salary', null, ['class' => 'form-control ', 'required' => 'required']) }}
+            {{ Form::number('salary', null, ['class' => 'form-control ', 'required' => 'required', 'min' => '0', 'max' => '1000000']) }}
         </div>
         <div class="form-group">
             {{ Form::label('account_type', __('From Account*'), ['class' => 'col-form-label']) }}
