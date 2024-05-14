@@ -26,7 +26,7 @@ class LoanController extends Controller
                 $request->all(), [
                                    'employee_id' => 'required',
                                    'loan_option' => 'required',
-                                   'title' => 'required',
+                                   'title' => 'required|max:100',
                                    'amount' => 'required',
                                 //    'start_date' => 'required',
                                 //    'end_date' => 'required',
@@ -105,7 +105,7 @@ class LoanController extends Controller
                     $request->all(), [
 
                                        'loan_option' => 'required',
-                                       'title' => 'required',
+                                       'title' => 'required|max:100',
                                        'amount' => 'required',
                                     //    'start_date' => 'required',
                                     //    'end_date' => 'required',

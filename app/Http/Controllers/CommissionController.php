@@ -24,7 +24,7 @@ class CommissionController extends Controller
             $validator = \Validator::make(
                 $request->all(), [
                                    'employee_id' => 'required',
-                                   'title' => 'required',
+                                   'title' => 'required|max:100',
                                    'amount' => 'required',
                                ]
             );
@@ -93,7 +93,7 @@ class CommissionController extends Controller
                 $validator = \Validator::make(
                     $request->all(), [
 
-                                       'title' => 'required',
+                                       'title' => 'required|max:100',
                                        'amount' => 'required',
                                    ]
                 );
