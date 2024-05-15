@@ -164,7 +164,7 @@
 <!-- [ Header ] End -->
 <!-- [ Banner ] start -->
 @if ($settings['home_status'] == 'on')
-    <section class="main-banner bg-primary" id="home">
+    <section class="main-banner" id="home">
         <div class="container-offset">
             <div class="row gy-3 g-0 align-items-center">
                 <div class="col-xxl-4 col-md-6">
