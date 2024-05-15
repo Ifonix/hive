@@ -26,7 +26,7 @@ class SaturationDeductionController extends Controller
                 $request->all(), [
                                    'employee_id' => 'required',
                                    'deduction_option' => 'required',
-                                   'title' => 'required',
+                                   'title' => 'required|max:100',
                                    'amount' => 'required',
                                ]
             );
@@ -98,7 +98,7 @@ class SaturationDeductionController extends Controller
                     $request->all(), [
 
                                        'deduction_option' => 'required',
-                                       'title' => 'required',
+                                       'title' => 'required|max:100',
                                        'amount' => 'required',
                                    ]
                 );

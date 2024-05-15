@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 {{ Form::label('title', __('Title'), ['class' => 'col-form-label']) }}
-                {{ Form::text('title', null, ['class' => 'form-control ', 'required' => 'required','placeholder'=>'Enter Title']) }}
+                {{ Form::text('title', null, ['class' => 'form-control ', 'required' => 'required','placeholder'=>'Enter Title', 'maxlength' => 100]) }}
             </div>
         </div>
         <div class="col-md-6">
