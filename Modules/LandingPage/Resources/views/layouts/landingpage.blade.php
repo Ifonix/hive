@@ -291,9 +291,9 @@
                                     </h2>
                                 </div>
                                 <p class="mb-3">{!! $value['other_featured_description'] !!}</p>
-                                <a href="{{ $value['other_feature_buy_now_link'] }}"
+                                {{-- <a href="{{ $value['other_feature_buy_now_link'] }}"
                                     class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
-                                    <i data-feather="lock" class="ms-2"></i></a>
+                                    <i data-feather="lock" class="ms-2"></i></a> --}}
                             </div>
                             <div class="col-lg-7 col-md-6 res-img">
                                 <div class="img-wrapper">
@@ -318,9 +318,9 @@
                                     </h2>
                                 </div>
                                 <p class="mb-3">{!! $value['other_featured_description'] !!}</p>
-                                <a href="{{ $value['other_feature_buy_now_link'] }}"
+                                {{-- <a href="{{ $value['other_feature_buy_now_link'] }}"
                                     class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
-                                    <i data-feather="lock" class="ms-2"></i></a>
+                                    <i data-feather="lock" class="ms-2"></i></a> --}}
                             </div>
                         </div>
                     @endif
