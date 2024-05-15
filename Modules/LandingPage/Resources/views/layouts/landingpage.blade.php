@@ -223,7 +223,7 @@
     <section class="features-section section-gap bg-dark" id="features">
         <div class="container">
             <div class="row gy-3">
-                <div class="col-xxl-4">
+                <div class="col-md-4">
                     <span class="d-block mb-2 text-uppercase">{{ $settings['feature_title'] }}</span>
                     <div class="title mb-4">
                         <h2><b class="fw-bold">{!! $settings['feature_heading'] !!}</b></h2>
@@ -232,10 +232,10 @@
                     @if ($settings['feature_buy_now_link'])
                         <a href="{{ $settings['feature_buy_now_link'] }}"
                             class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
-                            <i data-feather="lock" class="ms-2"></i></a>
+                        </a>
                     @endif
                 </div>
-                <div class="col-xxl-8">
+                <div class="col-md-8">
                     <div class="row">
                         @if (is_array(json_decode($settings['feature_of_features'], true)) ||
                                 is_object(json_decode($settings['feature_of_features'], true)))
