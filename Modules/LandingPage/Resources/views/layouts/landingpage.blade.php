@@ -231,7 +231,7 @@
                     <p class="mb-3">{!! $settings['feature_description'] !!}</p>
                     @if ($settings['feature_buy_now_link'])
                         <a href="{{ $settings['feature_buy_now_link'] }}"
-                            class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
+                            class="btn btn-landing rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
                         </a>
                     @endif
                 </div>
