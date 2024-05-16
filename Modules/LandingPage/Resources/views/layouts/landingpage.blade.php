@@ -179,14 +179,13 @@
                     <div class="d-flex gap-3 mt-4 banner-btn">
                         @if ($settings['home_live_demo_link'])
                             <a href="{{ $settings['home_live_demo_link'] }}"
-                                class="btn btn-outline-dark">{{ __('Live Demo') }} <i data-feather="play-circle"
-                                    class="ms-2"></i></a>
+                                class="btn btn-landing">{{ __('Try Free Trial') }}</a>
                         @endif
-                        @if ($settings['home_buy_now_link'])
+                        {{-- @if ($settings['home_buy_now_link'])
                             <a href="{{ $settings['home_buy_now_link'] }}"
                                 class="btn btn-outline-dark">{{ __('Buy Now') }} <i data-feather="lock"
                                     class="ms-2"></i></a>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
                 <div class="col-xxl-8 col-md-6">
@@ -199,10 +198,10 @@
         </div>
         <div class="container">
             <div class="row g-0 gy-2 mt-4 align-items-center">
-                <div class="col-xxl-3">
+                {{-- <div class="col-xxl-3">
                     <p class="mb-0">{{ __('Trusted by') }} <b
                             class="fw-bold">{{ $settings['home_trusted_by'] }}</b></p>
-                </div>
+                </div> --}}
                 <div class="col-xxl-9">
                     <div class="row gy-3 row-cols-9">
                         @foreach (explode(',', $settings['home_logo']) as $k => $home_logo)
