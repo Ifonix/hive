@@ -588,3 +588,12 @@ a:hover {
 .bg-plan {
     background-color: #333333;
 }
+
+/* Landing features */
+.bg-light-blue {
+    background-color: #33A8FA !important;
+}
+
+.bg-dark-blue {
+    background-color: #0D5E9A !important;
+}
