@@ -152,8 +152,7 @@ class SettingsController extends Controller
                     'mimes:' . 'png',
                     'max:' . '20480',
                 ];
-                $isPublic = true;
-                $path = Utility::upload_file($request, 'logo_light', $logoName, $dir, $isPublic, $validation, true);
+                $path = Utility::upload_file($request, 'logo_light', $logoName, $dir, $validation, true);
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
                 } else {
