@@ -678,7 +678,7 @@
             <div class="ftr-col cmp-detail">
                 <div class="footer-logo mb-3">
                     <a href="#">
-                        <img src="{{ $logo . '/' . $settings['site_logo'] . '?' . time() }}" alt="logo">
+                        <img src="{{ $logo . '/' . 'hive_logo_footer.png' . '?' . time() }}" alt="logo">
                     </a>
                 </div>
                 <p>
@@ -729,7 +729,7 @@
                         @csrf
                         <div class="input-wrapper border border-dark">
                             <input type="text" name="email" placeholder="Type your email address..." required>
-                            <button type="submit" class="btn btn-dark rounded-pill">{{ __('Join Us!') }}</button>
+                            <button type="submit" class="btn btn-landing rounded-pill">{{ __('Join Us!') }}</button>
                         </div>
                     </form>
                 </div>
