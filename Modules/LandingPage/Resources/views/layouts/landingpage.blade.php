@@ -85,7 +85,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/landingpage/css/style.css') }}"
             id="main-style-link">
     @endif
-
 </head>
 
 @if ($setting['cust_darklayout'] == 'on')
@@ -164,18 +163,18 @@
 <!-- [ Header ] End -->
 <!-- [ Banner ] start -->
 @if ($settings['home_status'] == 'on')
-    <section class="main-banner" id="home">
+    <section class="main-banner gradient-bg" id="home">
         <div class="container-offset">
             <div class="row gy-3 g-0 align-items-center">
                 <div class="col-xxl-4 col-md-6">
-                    <span class="badge py-2 px-3 bg-white text-dark rounded-pill fw-bold mb-3">
-                        {{ $settings['home_offer_text'] }}</span>
-                    <h1 class="mb-3">
+                    {{-- <span class="badge py-2 px-3 bg-white text-dark rounded-pill fw-bold mb-3">
+                        {{ $settings['home_offer_text'] }}</span> --}}
+                    <h1 class="mb-3 text-white">
                         {{-- <b class="fw-bold">{{ env('APP_NAME') }}</b> <br> --}}
                         {{ $settings['home_heading'] }}
                     </h1>
 
-                    <h6 class="mb-0">{{ $settings['home_description'] }}</h6>
+                    <h6 class="mb-0 text-white">{{ $settings['home_description'] }}</h6>
                     <div class="d-flex gap-3 mt-4 banner-btn">
                         @if ($settings['home_live_demo_link'])
                             <a href="{{ $settings['home_live_demo_link'] }}"
@@ -332,7 +331,7 @@
 <!-- [ element ] end -->
 <!-- [ element ] start -->
 @if ($settings['discover_status'] == 'on')
-    <section class="bg-white section-gap">
+    <section class="bg-white gradient-bg section-gap">
         <div class="container">
             <div class="row mb-2 justify-content-center">
                 <div class="col-xxl-6">
@@ -348,7 +347,7 @@
                         is_object(json_decode($settings['discover_of_features'], true)))
                     @foreach (json_decode($settings['discover_of_features'], true) as $key => $value)
                         <div class="col-xxl-3 col-sm-6 col-lg-4 ">
-                            <div class="card   border {{ $key == 1 ? 'bg-white' : 'bg-transparent' }}">
+                            <div class="card   border {{ $key == 1 ? 'bg-transparent' : 'bg-transparent' }}">
                                 <div class="card-body text-center">
                                     <span class="theme-avtar avtar avtar-xl mx-auto mb-4">
                                         <img src="{{ $logo . '/' . $value['discover_logo'] . '?' . time() }}"
@@ -603,13 +602,13 @@
 <!-- [ testimonial ] start -->
 
 @if ($settings['testimonials_status'] == 'on')
-    <section class="testimonial section-gap">
+    <section class="testimonial gradient-bg section-gap">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4">
                     <div class="title mb-4">
                         <span class="d-block mb-2 fw-bold text-uppercase">{{ __('TESTIMONIALS') }}</span>
-                        <h2 class="mb-2">{!! $settings['testimonials_heading'] !!}</h2>
+                        <h2 class="mb-2 text-white">{!! $settings['testimonials_heading'] !!}</h2>
                         <p>{!! $settings['testimonials_description'] !!}</p>
                     </div>
                 </div>
@@ -620,7 +619,7 @@
                         @if (is_array(json_decode($settings['testimonials'])) || is_object(json_decode($settings['testimonials'])))
                             @foreach (json_decode($settings['testimonials']) as $key => $value)
                                 <div class="col-xxl-4 col-sm-6 col-lg-6 col-md-4">
-                                    <div class="card bg-dark shadow-none mb-0">
+                                    <div class="card bg-transparent shadow-none mb-0">
                                         <div class="card-body p-3">
                                             <div class="d-flex mb-3 align-items-center justify-content-between">
                                                 <span class="theme-avtar avtar avtar-sm bg-light-dark rounded-1">
@@ -638,7 +637,7 @@
                                                 </span>
                                             </div>
                                             <h3 class="text-white">{{ $value->testimonials_title }}</h3>
-                                            <p class="hljs-comment">
+                                            <p class="hljs-comment text-white">
                                                 {{ $value->testimonials_description }}
                                             </p>
                                             <div class="d-flex  align-items-center ">
