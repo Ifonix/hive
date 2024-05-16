@@ -131,7 +131,7 @@ class SettingsController extends Controller
                     'max:' . '20480',
                 ];
 
-                $path = Utility::upload_file($request, 'logo', $logoName, $dir, $validation);
+                $path = Utility::upload_file($request, 'logo', $logoName, $dir, $validation, true);
 
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
@@ -152,8 +152,8 @@ class SettingsController extends Controller
                     'mimes:' . 'png',
                     'max:' . '20480',
                 ];
-
-                $path = Utility::upload_file($request, 'logo_light', $logoName, $dir, $validation);
+                $isPublic = true;
+                $path = Utility::upload_file($request, 'logo_light', $logoName, $dir, $isPublic, $validation, true);
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
                 } else {
@@ -175,7 +175,7 @@ class SettingsController extends Controller
                     'mimes:' . 'png',
                     'max:' . '20480',
                 ];
-                $path = Utility::upload_file($request, 'favicon', $favicon, $dir, $validation);
+                $path = Utility::upload_file($request, 'favicon', $favicon, $dir, $validation, true);
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
                 } else {
