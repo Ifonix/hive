@@ -419,13 +419,13 @@
 <!-- [ Screenshots ] start -->
 <!-- [ subscription ] start -->
 @if ($settings['plan_status'])
-    <section class="subscription bg-primary section-gap" id="plan">
+    <section class="subscription bg-plan section-gap" id="plan">
         <div class="container">
             <div class="row mb-2 justify-content-center">
                 <div class="col-xxl-6">
-                    <div class="title text-center mb-4">
+                    <div class="title text-center mb-4 text-white">
                         <span class="d-block mb-2 fw-bold text-uppercase">{{ __('PLAN') }}</span>
-                        <h2 class="mb-4">{!! $settings['plan_heading'] !!}</h2>
+                        <h2 class="mb-4 text-white">{!! $settings['plan_heading'] !!}</h2>
                         <p>{!! $settings['plan_description'] !!}</p>
                     </div>
                 </div>
@@ -446,7 +446,8 @@
                                 <p>
                                     {!! $value->description !!}
                                 </p>
-                                <ul class="list-unstyled my-3">
+                                {{-- These values came from database --}}
+                                {{-- <ul class="list-unstyled my-3">
                                     <li>
                                         <div class="form-check text-start">
                                             <label class="form-check-label" for="customCheckc1">
@@ -479,10 +480,40 @@
                                         </div>
                                     </li>
 
+                                </ul> --}}
+                                <ul class="list-unstyled my-3">
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Employee Database') }}</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Attendence Tracking') }}</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Payslip Generation') }}</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Payroll Management') }}</label>
+                                        </div>
+                                    </li>
                                 </ul>
                                 <div class="d-grid">
                                     <a href="{{ route('register') }}"
-                                        class="btn btn-primary rounded-pill">{{ __('Start with Starter') }}
+                                        class="btn btn-dark rounded-pill">{{ __('Start with Starter') }}
                                         <i data-feather="log-in" class="ms-2"></i> </a>
                                 </div>
                             </div>

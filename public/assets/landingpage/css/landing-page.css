@@ -583,3 +583,8 @@ a:hover {
 .btn-landing:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
+
+/* Landing plan section */
+.bg-plan {
+    background-color: #333333;
+}
