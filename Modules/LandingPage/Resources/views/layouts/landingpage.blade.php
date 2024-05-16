@@ -333,7 +333,7 @@
 <!-- [ element ] end -->
 <!-- [ element ] start -->
 @if ($settings['discover_status'] == 'on')
-    <section class="bg-dark section-gap">
+    <section class="bg-white section-gap">
         <div class="container">
             <div class="row mb-2 justify-content-center">
                 <div class="col-xxl-6">
@@ -349,7 +349,7 @@
                         is_object(json_decode($settings['discover_of_features'], true)))
                     @foreach (json_decode($settings['discover_of_features'], true) as $key => $value)
                         <div class="col-xxl-3 col-sm-6 col-lg-4 ">
-                            <div class="card   border {{ $key == 1 ? 'bg-primary' : 'bg-transparent' }}">
+                            <div class="card   border {{ $key == 1 ? 'bg-white' : 'bg-transparent' }}">
                                 <div class="card-body text-center">
                                     <span class="theme-avtar avtar avtar-xl mx-auto mb-4">
                                         <img src="{{ $logo . '/' . $value['discover_logo'] . '?' . time() }}"
@@ -368,16 +368,15 @@
 
             </div>
             <div class="d-flex flex-column justify-content-center flex-sm-row gap-3 mt-3">
-                @if ($settings['discover_live_demo_link'])
+                {{-- @if ($settings['discover_live_demo_link'])
                     <a href="{{ $settings['discover_live_demo_link'] }}"
                         class="btn btn-outline-light rounded-pill">{{ __('Live Demo') }}
                         <i data-feather="play-circle" class="ms-2"></i> </a>
-                @endif
+                @endif --}}
 
                 @if ($settings['discover_buy_now_link'])
                     <a href="{{ $settings['discover_buy_now_link'] }}"
-                        class="btn btn-primary rounded-pill">{{ __('Buy Now') }} <i data-feather="lock"
-                            class="ms-2"></i> </a>
+                        class="btn btn-landing rounded-pill">{{ __('Buy Now') }}</a>
                 @endif
             </div>
         </div>
