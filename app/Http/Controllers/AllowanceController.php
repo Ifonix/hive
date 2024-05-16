@@ -30,7 +30,7 @@ class AllowanceController extends Controller
                 $request->all(), [
                                    'employee_id' => 'required',
                                    'allowance_option' => 'required',
-                                   'title' => 'required',
+                                   'title' => 'required|max:100',
                                    'amount' => 'required',
                                    'type' => 'required',
                                ]
@@ -103,7 +103,7 @@ class AllowanceController extends Controller
                     $request->all(), [
 
                                        'allowance_option' => 'required',
-                                       'title' => 'required',
+                                       'title' => 'required|max:100',
                                        'amount' => 'required',
                                    ]
                 );

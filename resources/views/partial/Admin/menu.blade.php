@@ -1,5 +1,5 @@
 @php
-    
+
     $logo = \App\Models\Utility::get_file('uploads/logo/');
     $company_logo = \App\Models\Utility::GetLogo();
     $users = \Auth::user();
@@ -21,7 +21,10 @@
     <div class="m-header main-logo">
         <a href="{{ route('dashboard') }}" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
-            <img src="{{ $logo . (isset($company_logo) && !empty($company_logo) ? $company_logo . '?' . time() : 'logo-dark.png' . '?' . time()) }}"
+            @php
+                $sLogoLink = $logo . (isset($company_logo) && !empty($company_logo) ? $company_logo . '?' . time() : 'logo-dark.png' . '?' . time());
+            @endphp
+            <img src="{{ url($sLogoLink) }}"
                 alt="{{ config('app.name', 'HRMGo') }}" class="logo logo-lg" style="height: 40px;">
         </a>
     </div>

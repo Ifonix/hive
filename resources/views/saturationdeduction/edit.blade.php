@@ -22,7 +22,7 @@
         </div>
         <div class="form-group col-md-6">
             {{ Form::label('title', __('Title'), ['class' => 'col-form-label']) }}
-            {{ Form::text('title', null, ['class' => 'form-control ', 'required' => 'required','placeholder'=>'Enter Title']) }}
+            {{ Form::text('title', null, ['class' => 'form-control ', 'required' => 'required','placeholder'=>'Enter Title', 'maxlength' => 100]) }}
         </div>
         <div class="form-group col-md-6">
             {{ Form::label('type', __('Type'), ['class' => 'col-form-label']) }}

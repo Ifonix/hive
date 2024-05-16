@@ -85,7 +85,7 @@ class EmployeeController extends Controller
                     'name' => 'required',
                     'dob' => 'required',
                     'gender' => 'required',
-                    'phone' => 'required',
+                    'phone' => 'required|numeric',
                     'address' => 'required',
                     'email' => 'required|unique:users',
                     'password' => 'required',
@@ -526,7 +526,7 @@ class EmployeeController extends Controller
             $employeeData->company_doj         = $employee[11];
             $employeeData->account_holder_name = $employee[12];
             $employeeData->account_number      = $employee[13];
-            $employeeData->bank_name           = $employee[14];
+            $employeeData->bank_id           = $employee[14];
             $employeeData->bank_identifier_code = $employee[15];
             $employeeData->branch_location     = $employee[16];
             $employeeData->tax_payer_id        = $employee[17];

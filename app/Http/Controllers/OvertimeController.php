@@ -23,7 +23,7 @@ class OvertimeController extends Controller
             $validator = \Validator::make(
                 $request->all(), [
                                    'employee_id' => 'required',
-                                   'title' => 'required',
+                                   'title' => 'required|max:100',
                                    'number_of_days' => 'required',
                                    'hours' => 'required',
                                    'rate' => 'required',
@@ -87,7 +87,7 @@ class OvertimeController extends Controller
             {
                 $validator = \Validator::make(
                     $request->all(), [
-                                       'title' => 'required',
+                                       'title' => 'required|max:100',
                                        'number_of_days' => 'required',
                                        'hours' => 'required',
                                        'rate' => 'required',

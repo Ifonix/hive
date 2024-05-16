@@ -1275,7 +1275,7 @@ class Utility extends Model
         return $overallrating;
     }
 
-    public static function upload_file($request, $key_name, $name, $path, $custom_validation = [])
+    public static function upload_file($request, $key_name, $name, $path, $custom_validation = [], $isPublic = true)
     {
         try {
             $settings = Utility::getStorageSetting();
@@ -1341,7 +1341,10 @@ class Utility extends Model
 
                     if ($settings['storage_setting'] == 'local') {
 
-                        $request->$key_name->move(storage_path($path), $name);
+                        $upload_path = ($isPublic) ? public_path($path) : storage_path($path);
+
+                        $request->$key_name->move($upload_path, $name);
+                        // $request->$key_name->move(storage_path($path), $name);
 
                         $path = $path . $name;
                     } else if ($settings['storage_setting'] == 'wasabi') {

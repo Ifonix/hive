@@ -42,7 +42,7 @@ class Plan extends Model
         
     public static function most_purchese_plan()
     {
-        $free_plan = Plan::where('price', '<=', 0)->first()->id;
+        $free_plan = Plan::where('price', '<=', 5)->first()->id;
 
         return User:: select('plans.name','plans.id', DB::raw('count(*) as total'))
                    ->join('plans', 'plans.id' ,'=', 'users.plan')
