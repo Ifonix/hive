@@ -213,14 +213,18 @@ class SettingsController extends Controller
                 foreach ($post as $key => $data) {
                     if (in_array($key, array_keys($settings)) && !empty($data)) {
                         if (!empty($data)) {
-                            \DB::insert(
-                                'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
-                                [
-                                    $data,
-                                    $key,
-                                    \Auth::user()->creatorId(),
-                                ]
-                            );
+                            \DB::statement("
+                                INSERT INTO settings (name, value, created_by, created_at, updated_at)
+                                VALUES (?, ?, ?, ?, ?)
+                                ON CONFLICT (name, created_by) DO UPDATE SET value = EXCLUDED.value
+                            ", [
+                                $key,
+                                $data,
+                                \Auth::user()->creatorId(),
+                                now(),
+                                now()
+                            ]);
+
                         }
                     }
                 }
