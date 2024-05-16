@@ -220,15 +220,15 @@
 <!-- [ Banner ] start -->
 <!-- [ features ] start -->
 @if ($settings['feature_status'] == 'on')
-    <section class="features-section section-gap bg-dark" id="features">
+    <section class="features-section section-gap bg-plan" id="features">
         <div class="container">
             <div class="row gy-3">
                 <div class="col-md-4">
-                    <span class="d-block mb-2 text-uppercase">{{ $settings['feature_title'] }}</span>
+                    <span class="d-block mb-2 text-uppercase text-white">{{ $settings['feature_title'] }}</span>
                     <div class="title mb-4">
-                        <h2><b class="fw-bold">{!! $settings['feature_heading'] !!}</b></h2>
+                        <h2 class="text-white"><b class="fw-bold">{!! $settings['feature_heading'] !!}</b></h2>
                     </div>
-                    <p class="mb-3">{!! $settings['feature_description'] !!}</p>
+                    <p class="mb-3 text-white">{!! $settings['feature_description'] !!}</p>
                     @if ($settings['feature_buy_now_link'])
                         <a href="{{ $settings['feature_buy_now_link'] }}"
                             class="btn btn-landing rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
@@ -241,15 +241,15 @@
                                 is_object(json_decode($settings['feature_of_features'], true)))
                             @foreach (json_decode($settings['feature_of_features'], true) as $key => $value)
                                 <div class="col-lg-4 col-sm-6 d-flex">
-                                    <div class="card {{ $key == 0 ? 'bg-primary' : '' }}">
+                                    <div class="card {{ $key == 0 ? 'bg-light-blue' : 'bg-dark-blue' }}">
                                         <div class="card-body">
                                             <span class="theme-avtar avtar avtar-xl mb-4">
                                                 <img src="{{ $logo . '/' . $value['feature_logo'] . '?' . time() }}"
                                                     alt="">
                                             </span>
-                                            <h3 class="mb-3 {{ $key == 0 ? '' : 'text-white' }}">
+                                            <h3 class="mb-3 {{ $key == 0 ? 'text-dark' : 'text-white' }}">
                                                 {!! $value['feature_heading'] !!}</h3>
-                                            <p class=" f-w-600 mb-0 {{ $key == 0 ? 'text-body' : '' }}">
+                                            <p class=" f-w-600 mb-0 {{ $key == 0 ? 'text-body' : 'text-white' }}">
                                                 {!! $value['feature_description'] !!}</p>
                                         </div>
                                     </div>
@@ -260,9 +260,9 @@
                 </div>
                 <div class="mt-5">
                     <div class="title text-center mb-4">
-                        <span class="d-block mb-2 text-uppercase">{{ $settings['feature_title'] }}</span>
-                        <h2 class="mb-4">{!! $settings['highlight_feature_heading'] !!}</h2>
-                        <p>{!! $settings['highlight_feature_description'] !!}</p>
+                        <span class="d-block mb-2 text-uppercase text-white">{{ $settings['feature_title'] }}</span>
+                        <h2 class="mb-4 text-white">{!! $settings['highlight_feature_heading'] !!}</h2>
+                        <p class="text-white">{!! $settings['highlight_feature_description'] !!}</p>
                     </div>
                     <div class="features-preview">
                         <img class="img-fluid m-auto d-block"
