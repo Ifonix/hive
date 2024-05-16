@@ -53,7 +53,8 @@
     border-radius: 0px;
     position: absolute;
     transform-origin: bottom;
-    background: var(--bs-green);
+   /* background: var(--bs-green);*/
+   background: var(--bs-blue);
 }
 
 .custom-login .navbar {

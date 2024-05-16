@@ -109,22 +109,26 @@
 </head>
 
 <body class="{{ $color }}">
-    <!-- [custom-login] start -->
+    <!-- [custom-login] start -->  <!--images-->
     <div class="custom-login">
         <div class="login-bg-img">
-            <img src="{{ asset('assets/images/' . $color . '.svg') }}" class="login-bg-1">
-            <img src="{{ asset('assets/images/common.svg') }}" class="login-bg-2">
+            <img src="{{ asset('assets/images/Asset 2.svg') }}" class="login-bg-1">
+            <img src="{{ asset('assets/images/Layer 2.svg') }}" class="login-bg-2">
         </div>
         <div class="bg-login bg-primary"></div>
         <div class="custom-login-inner">
             <header class="dash-header">
                 <nav class="navbar navbar-expand-md default">
-                    <div class="container">
+                    <div class="container"> 
                         <div class="navbar-brand">
                             <a href="#">
-                                <img src="{{ $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo . '?' . time() : 'logo_dark.png' . '?' . time()) }}"
+                            <!-- <img src="{{ $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo . '?' . time() : 'logo_dark.png' . '?' . time()) }}"
                                     class="logo" alt="{{ config('app.name', 'HRMGo SaaS') }}" alt="logo"
-                                    loading="lazy" style="max-height: 50px;"/>
+                                    loading="lazy" style="max-height: 50px;"/> -->
+
+                                   <img src="{{ $logo . '/' . (isset($company_logo) && !empty($company_logo) ? $company_logo . '?' . time() : 'logo_dark.png' . '?' . time()) }}"
+                                    class="logo" alt="{{ config('app.name', 'HRMGo SaaS') }}" alt="logo"
+                                    loading="lazy" style="max-height: 50px;"/> 
                             </a>
                         </div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

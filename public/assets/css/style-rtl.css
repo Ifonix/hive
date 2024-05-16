@@ -16180,7 +16180,9 @@ body.theme-2 .dash-sidebar.light-sidebar .dash-navbar > .dash-item.active > .das
 
 body.theme-2 .dash-sidebar.light-sidebar .dash-item .dash-submenu .dash-item::before,
   body.theme-2 .dash-sidebar .dash-item .dash-submenu .dash-item::before {
-    border-right-color: #584ED2;
+    /*border-right-color: #584ED2;*/
+    border-right-color: #2E9DEE;
+}
 }
 
 body.theme-2 .dash-sidebar.light-sidebar .dash-item .dash-submenu .dash-item.active > .dash-link, body.theme-2 .dash-sidebar.light-sidebar .dash-item .dash-submenu .dash-item:active > .dash-link, body.theme-2 .dash-sidebar.light-sidebar .dash-item .dash-submenu .dash-item:focus > .dash-link, body.theme-2 .dash-sidebar.light-sidebar .dash-item .dash-submenu .dash-item:hover > .dash-link,
