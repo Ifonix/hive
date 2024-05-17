@@ -131,7 +131,7 @@ class SettingsController extends Controller
                     'max:' . '20480',
                 ];
 
-                $path = Utility::upload_file($request, 'logo', $logoName, $dir, $validation);
+                $path = Utility::upload_file($request, 'logo', $logoName, $dir, $validation, true);
 
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
@@ -152,8 +152,7 @@ class SettingsController extends Controller
                     'mimes:' . 'png',
                     'max:' . '20480',
                 ];
-
-                $path = Utility::upload_file($request, 'logo_light', $logoName, $dir, $validation);
+                $path = Utility::upload_file($request, 'logo_light', $logoName, $dir, $validation, true);
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
                 } else {
@@ -175,7 +174,7 @@ class SettingsController extends Controller
                     'mimes:' . 'png',
                     'max:' . '20480',
                 ];
-                $path = Utility::upload_file($request, 'favicon', $favicon, $dir, $validation);
+                $path = Utility::upload_file($request, 'favicon', $favicon, $dir, $validation, true);
                 if ($path['flag'] == 1) {
                     $url = $path['url'];
                 } else {
@@ -213,14 +212,18 @@ class SettingsController extends Controller
                 foreach ($post as $key => $data) {
                     if (in_array($key, array_keys($settings)) && !empty($data)) {
                         if (!empty($data)) {
-                            \DB::insert(
-                                'insert into settings (`value`, `name`,`created_by`) values (?, ?, ?) ON DUPLICATE KEY UPDATE `value` = VALUES(`value`) ',
-                                [
-                                    $data,
-                                    $key,
-                                    \Auth::user()->creatorId(),
-                                ]
-                            );
+                            \DB::statement("
+                                INSERT INTO settings (name, value, created_by, created_at, updated_at)
+                                VALUES (?, ?, ?, ?, ?)
+                                ON CONFLICT (name, created_by) DO UPDATE SET value = EXCLUDED.value
+                            ", [
+                                $key,
+                                $data,
+                                \Auth::user()->creatorId(),
+                                now(),
+                                now()
+                            ]);
+
                         }
                     }
                 }

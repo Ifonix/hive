@@ -85,7 +85,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/landingpage/css/style.css') }}"
             id="main-style-link">
     @endif
-
 </head>
 
 @if ($setting['cust_darklayout'] == 'on')
@@ -164,29 +163,28 @@
 <!-- [ Header ] End -->
 <!-- [ Banner ] start -->
 @if ($settings['home_status'] == 'on')
-    <section class="main-banner bg-primary" id="home">
+    <section class="main-banner gradient-bg" id="home">
         <div class="container-offset">
             <div class="row gy-3 g-0 align-items-center">
                 <div class="col-xxl-4 col-md-6">
-                    <span class="badge py-2 px-3 bg-white text-dark rounded-pill fw-bold mb-3">
-                        {{ $settings['home_offer_text'] }}</span>
-                    <h1 class="mb-3">
+                    {{-- <span class="badge py-2 px-3 bg-white text-dark rounded-pill fw-bold mb-3">
+                        {{ $settings['home_offer_text'] }}</span> --}}
+                    <h1 class="mb-3 text-white">
                         {{-- <b class="fw-bold">{{ env('APP_NAME') }}</b> <br> --}}
                         {{ $settings['home_heading'] }}
                     </h1>
 
-                    <h6 class="mb-0">{{ $settings['home_description'] }}</h6>
+                    <h6 class="mb-0 text-white">{{ $settings['home_description'] }}</h6>
                     <div class="d-flex gap-3 mt-4 banner-btn">
                         @if ($settings['home_live_demo_link'])
                             <a href="{{ $settings['home_live_demo_link'] }}"
-                                class="btn btn-outline-dark">{{ __('Live Demo') }} <i data-feather="play-circle"
-                                    class="ms-2"></i></a>
+                                class="btn btn-landing">{{ __('Try Free Trial') }}</a>
                         @endif
-                        @if ($settings['home_buy_now_link'])
+                        {{-- @if ($settings['home_buy_now_link'])
                             <a href="{{ $settings['home_buy_now_link'] }}"
                                 class="btn btn-outline-dark">{{ __('Buy Now') }} <i data-feather="lock"
                                     class="ms-2"></i></a>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
                 <div class="col-xxl-8 col-md-6">
@@ -199,10 +197,10 @@
         </div>
         <div class="container">
             <div class="row g-0 gy-2 mt-4 align-items-center">
-                <div class="col-xxl-3">
+                {{-- <div class="col-xxl-3">
                     <p class="mb-0">{{ __('Trusted by') }} <b
                             class="fw-bold">{{ $settings['home_trusted_by'] }}</b></p>
-                </div>
+                </div> --}}
                 <div class="col-xxl-9">
                     <div class="row gy-3 row-cols-9">
                         @foreach (explode(',', $settings['home_logo']) as $k => $home_logo)
@@ -220,36 +218,36 @@
 <!-- [ Banner ] start -->
 <!-- [ features ] start -->
 @if ($settings['feature_status'] == 'on')
-    <section class="features-section section-gap bg-dark" id="features">
+    <section class="features-section section-gap bg-plan" id="features">
         <div class="container">
             <div class="row gy-3">
-                <div class="col-xxl-4">
-                    <span class="d-block mb-2 text-uppercase">{{ $settings['feature_title'] }}</span>
+                <div class="col-md-4">
+                    <span class="d-block mb-2 text-uppercase text-white">{{ $settings['feature_title'] }}</span>
                     <div class="title mb-4">
-                        <h2><b class="fw-bold">{!! $settings['feature_heading'] !!}</b></h2>
+                        <h2 class="text-white"><b class="fw-bold">{!! $settings['feature_heading'] !!}</b></h2>
                     </div>
-                    <p class="mb-3">{!! $settings['feature_description'] !!}</p>
+                    <p class="mb-3 text-white">{!! $settings['feature_description'] !!}</p>
                     @if ($settings['feature_buy_now_link'])
                         <a href="{{ $settings['feature_buy_now_link'] }}"
-                            class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
-                            <i data-feather="lock" class="ms-2"></i></a>
+                            class="btn btn-landing rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
+                        </a>
                     @endif
                 </div>
-                <div class="col-xxl-8">
+                <div class="col-md-8">
                     <div class="row">
                         @if (is_array(json_decode($settings['feature_of_features'], true)) ||
                                 is_object(json_decode($settings['feature_of_features'], true)))
                             @foreach (json_decode($settings['feature_of_features'], true) as $key => $value)
                                 <div class="col-lg-4 col-sm-6 d-flex">
-                                    <div class="card {{ $key == 0 ? 'bg-primary' : '' }}">
+                                    <div class="card {{ $key == 0 ? 'bg-light-blue' : 'bg-dark-blue' }}">
                                         <div class="card-body">
                                             <span class="theme-avtar avtar avtar-xl mb-4">
                                                 <img src="{{ $logo . '/' . $value['feature_logo'] . '?' . time() }}"
                                                     alt="">
                                             </span>
-                                            <h3 class="mb-3 {{ $key == 0 ? '' : 'text-white' }}">
+                                            <h3 class="mb-3 {{ $key == 0 ? 'text-dark' : 'text-white' }}">
                                                 {!! $value['feature_heading'] !!}</h3>
-                                            <p class=" f-w-600 mb-0 {{ $key == 0 ? 'text-body' : '' }}">
+                                            <p class=" f-w-600 mb-0 {{ $key == 0 ? 'text-body' : 'text-white' }}">
                                                 {!! $value['feature_description'] !!}</p>
                                         </div>
                                     </div>
@@ -260,9 +258,9 @@
                 </div>
                 <div class="mt-5">
                     <div class="title text-center mb-4">
-                        <span class="d-block mb-2 text-uppercase">{{ $settings['feature_title'] }}</span>
-                        <h2 class="mb-4">{!! $settings['highlight_feature_heading'] !!}</h2>
-                        <p>{!! $settings['highlight_feature_description'] !!}</p>
+                        <span class="d-block mb-2 text-uppercase text-white">{{ $settings['feature_title'] }}</span>
+                        <h2 class="mb-4 text-white">{!! $settings['highlight_feature_heading'] !!}</h2>
+                        <p class="text-white">{!! $settings['highlight_feature_description'] !!}</p>
                     </div>
                     <div class="features-preview">
                         <img class="img-fluid m-auto d-block"
@@ -291,9 +289,9 @@
                                     </h2>
                                 </div>
                                 <p class="mb-3">{!! $value['other_featured_description'] !!}</p>
-                                <a href="{{ $value['other_feature_buy_now_link'] }}"
+                                {{-- <a href="{{ $value['other_feature_buy_now_link'] }}"
                                     class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
-                                    <i data-feather="lock" class="ms-2"></i></a>
+                                    <i data-feather="lock" class="ms-2"></i></a> --}}
                             </div>
                             <div class="col-lg-7 col-md-6 res-img">
                                 <div class="img-wrapper">
@@ -318,9 +316,9 @@
                                     </h2>
                                 </div>
                                 <p class="mb-3">{!! $value['other_featured_description'] !!}</p>
-                                <a href="{{ $value['other_feature_buy_now_link'] }}"
+                                {{-- <a href="{{ $value['other_feature_buy_now_link'] }}"
                                     class="btn btn-primary rounded-pill d-inline-flex align-items-center">{{ __('Buy Now') }}
-                                    <i data-feather="lock" class="ms-2"></i></a>
+                                    <i data-feather="lock" class="ms-2"></i></a> --}}
                             </div>
                         </div>
                     @endif
@@ -333,13 +331,13 @@
 <!-- [ element ] end -->
 <!-- [ element ] start -->
 @if ($settings['discover_status'] == 'on')
-    <section class="bg-dark section-gap">
+    <section class="bg-white gradient-bg section-gap">
         <div class="container">
             <div class="row mb-2 justify-content-center">
                 <div class="col-xxl-6">
                     <div class="title text-center mb-4">
                         <span class="d-block mb-2 text-uppercase">{{ __('DISCOVER') }}</span>
-                        <h2 class="mb-4">{!! $settings['discover_heading'] !!}</h2>
+                        <h2 class="mb-4 text-white">{!! $settings['discover_heading'] !!}</h2>
                         <p>{!! $settings['discover_description'] !!}</p>
                     </div>
                 </div>
@@ -348,14 +346,14 @@
                 @if (is_array(json_decode($settings['discover_of_features'], true)) ||
                         is_object(json_decode($settings['discover_of_features'], true)))
                     @foreach (json_decode($settings['discover_of_features'], true) as $key => $value)
-                        <div class="col-xxl-3 col-sm-6 col-lg-4 ">
-                            <div class="card   border {{ $key == 1 ? 'bg-primary' : 'bg-transparent' }}">
+                        <div class="col-xxl-4 col-sm-6 col-lg-4 ">
+                            <div class="card border {{ $key == 1 ? 'bg-transparent' : 'bg-transparent' }}">
                                 <div class="card-body text-center">
                                     <span class="theme-avtar avtar avtar-xl mx-auto mb-4">
                                         <img src="{{ $logo . '/' . $value['discover_logo'] . '?' . time() }}"
                                             alt="">
                                     </span>
-                                    <h3 class="mb-3 {{ $key == 1 ? '' : 'text-white' }} ">{!! $value['discover_heading'] !!}
+                                    <h3 class="mb-3 {{ $key == 1 ? 'text-white' : 'text-white' }} ">{!! $value['discover_heading'] !!}
                                     </h3>
                                     <p class="{{ $key == 1 ? 'text-body' : '' }}">
                                         {!! $value['discover_description'] !!}
@@ -368,16 +366,15 @@
 
             </div>
             <div class="d-flex flex-column justify-content-center flex-sm-row gap-3 mt-3">
-                @if ($settings['discover_live_demo_link'])
+                {{-- @if ($settings['discover_live_demo_link'])
                     <a href="{{ $settings['discover_live_demo_link'] }}"
                         class="btn btn-outline-light rounded-pill">{{ __('Live Demo') }}
                         <i data-feather="play-circle" class="ms-2"></i> </a>
-                @endif
+                @endif --}}
 
                 @if ($settings['discover_buy_now_link'])
                     <a href="{{ $settings['discover_buy_now_link'] }}"
-                        class="btn btn-primary rounded-pill">{{ __('Buy Now') }} <i data-feather="lock"
-                            class="ms-2"></i> </a>
+                        class="btn btn-landing rounded-pill">{{ __('Buy Now') }}</a>
                 @endif
             </div>
         </div>
@@ -419,13 +416,13 @@
 <!-- [ Screenshots ] start -->
 <!-- [ subscription ] start -->
 @if ($settings['plan_status'])
-    <section class="subscription bg-primary section-gap" id="plan">
+    <section class="subscription bg-plan section-gap" id="plan">
         <div class="container">
             <div class="row mb-2 justify-content-center">
                 <div class="col-xxl-6">
-                    <div class="title text-center mb-4">
+                    <div class="title text-center mb-4 text-white">
                         <span class="d-block mb-2 fw-bold text-uppercase">{{ __('PLAN') }}</span>
-                        <h2 class="mb-4">{!! $settings['plan_heading'] !!}</h2>
+                        <h2 class="mb-4 text-white">{!! $settings['plan_heading'] !!}</h2>
                         <p>{!! $settings['plan_description'] !!}</p>
                     </div>
                 </div>
@@ -446,7 +443,8 @@
                                 <p>
                                     {!! $value->description !!}
                                 </p>
-                                <ul class="list-unstyled my-3">
+                                {{-- These values came from database --}}
+                                {{-- <ul class="list-unstyled my-3">
                                     <li>
                                         <div class="form-check text-start">
                                             <label class="form-check-label" for="customCheckc1">
@@ -479,10 +477,40 @@
                                         </div>
                                     </li>
 
+                                </ul> --}}
+                                <ul class="list-unstyled my-3">
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Employee Database') }}</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Attendence Tracking') }}</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Payslip Generation') }}</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check text-start">
+                                            <label class="form-check-label" for="customCheckc1">
+                                                <i class="text-dark ti ti-circle-plus"></i>
+                                                {{ __('Payroll Management') }}</label>
+                                        </div>
+                                    </li>
                                 </ul>
                                 <div class="d-grid">
                                     <a href="{{ route('register') }}"
-                                        class="btn btn-primary rounded-pill">{{ __('Start with Starter') }}
+                                        class="btn btn-dark rounded-pill">{{ __('Start with Starter') }}
                                         <i data-feather="log-in" class="ms-2"></i> </a>
                                 </div>
                             </div>
@@ -574,13 +602,13 @@
 <!-- [ testimonial ] start -->
 
 @if ($settings['testimonials_status'] == 'on')
-    <section class="testimonial section-gap">
+    <section class="testimonial gradient-bg section-gap">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4">
                     <div class="title mb-4">
                         <span class="d-block mb-2 fw-bold text-uppercase">{{ __('TESTIMONIALS') }}</span>
-                        <h2 class="mb-2">{!! $settings['testimonials_heading'] !!}</h2>
+                        <h2 class="mb-2 text-white">{!! $settings['testimonials_heading'] !!}</h2>
                         <p>{!! $settings['testimonials_description'] !!}</p>
                     </div>
                 </div>
@@ -591,7 +619,7 @@
                         @if (is_array(json_decode($settings['testimonials'])) || is_object(json_decode($settings['testimonials'])))
                             @foreach (json_decode($settings['testimonials']) as $key => $value)
                                 <div class="col-xxl-4 col-sm-6 col-lg-6 col-md-4">
-                                    <div class="card bg-dark shadow-none mb-0">
+                                    <div class="card border bg-transparent shadow-none mb-0">
                                         <div class="card-body p-3">
                                             <div class="d-flex mb-3 align-items-center justify-content-between">
                                                 <span class="theme-avtar avtar avtar-sm bg-light-dark rounded-1">
@@ -609,7 +637,7 @@
                                                 </span>
                                             </div>
                                             <h3 class="text-white">{{ $value->testimonials_title }}</h3>
-                                            <p class="hljs-comment">
+                                            <p class="hljs-comment text-white">
                                                 {{ $value->testimonials_description }}
                                             </p>
                                             <div class="d-flex  align-items-center ">
@@ -647,7 +675,7 @@
             <div class="ftr-col cmp-detail">
                 <div class="footer-logo mb-3">
                     <a href="#">
-                        <img src="{{ $logo . '/' . $settings['site_logo'] . '?' . time() }}" alt="logo">
+                        <img src="{{ $logo . '/' . 'hive_logo_footer.png' . '?' . time() }}" alt="logo">
                     </a>
                 </div>
                 <p>
@@ -698,7 +726,7 @@
                         @csrf
                         <div class="input-wrapper border border-dark">
                             <input type="text" name="email" placeholder="Type your email address..." required>
-                            <button type="submit" class="btn btn-dark rounded-pill">{{ __('Join Us!') }}</button>
+                            <button type="submit" class="btn btn-landing rounded-pill">{{ __('Join Us!') }}</button>
                         </div>
                     </form>
                 </div>
