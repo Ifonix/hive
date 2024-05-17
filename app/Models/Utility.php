@@ -1275,7 +1275,7 @@ class Utility extends Model
         return $overallrating;
     }
 
-    public static function upload_file($request, $key_name, $name, $path, $custom_validation = [], $isPublic = true)
+    public static function upload_file($request, $key_name, $name, $path, $custom_validation = [], $isPublic = false)
     {
         try {
             $settings = Utility::getStorageSetting();
