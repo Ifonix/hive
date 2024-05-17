@@ -355,7 +355,7 @@
                                     </span>
                                     <h3 class="mb-3 {{ $key == 1 ? 'text-white' : 'text-white' }} ">{!! $value['discover_heading'] !!}
                                     </h3>
-                                    <p class="{{ $key == 1 ? 'text-body' : '' }}">
+                                    <p class="{{ $key == 1 ? 'text-white' : '' }}">
                                         {!! $value['discover_description'] !!}
                                     </p>
                                 </div>
