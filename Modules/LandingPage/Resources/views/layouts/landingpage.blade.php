@@ -337,7 +337,7 @@
                 <div class="col-xxl-6">
                     <div class="title text-center mb-4">
                         <span class="d-block mb-2 text-uppercase">{{ __('DISCOVER') }}</span>
-                        <h2 class="mb-4">{!! $settings['discover_heading'] !!}</h2>
+                        <h2 class="mb-4 text-white">{!! $settings['discover_heading'] !!}</h2>
                         <p>{!! $settings['discover_description'] !!}</p>
                     </div>
                 </div>
@@ -346,14 +346,14 @@
                 @if (is_array(json_decode($settings['discover_of_features'], true)) ||
                         is_object(json_decode($settings['discover_of_features'], true)))
                     @foreach (json_decode($settings['discover_of_features'], true) as $key => $value)
-                        <div class="col-xxl-3 col-sm-6 col-lg-4 ">
-                            <div class="card   border {{ $key == 1 ? 'bg-transparent' : 'bg-transparent' }}">
+                        <div class="col-xxl-4 col-sm-6 col-lg-4 ">
+                            <div class="card border {{ $key == 1 ? 'bg-transparent' : 'bg-transparent' }}">
                                 <div class="card-body text-center">
                                     <span class="theme-avtar avtar avtar-xl mx-auto mb-4">
                                         <img src="{{ $logo . '/' . $value['discover_logo'] . '?' . time() }}"
                                             alt="">
                                     </span>
-                                    <h3 class="mb-3 {{ $key == 1 ? '' : 'text-white' }} ">{!! $value['discover_heading'] !!}
+                                    <h3 class="mb-3 {{ $key == 1 ? 'text-white' : 'text-white' }} ">{!! $value['discover_heading'] !!}
                                     </h3>
                                     <p class="{{ $key == 1 ? 'text-body' : '' }}">
                                         {!! $value['discover_description'] !!}
@@ -619,7 +619,7 @@
                         @if (is_array(json_decode($settings['testimonials'])) || is_object(json_decode($settings['testimonials'])))
                             @foreach (json_decode($settings['testimonials']) as $key => $value)
                                 <div class="col-xxl-4 col-sm-6 col-lg-6 col-md-4">
-                                    <div class="card bg-transparent shadow-none mb-0">
+                                    <div class="card border bg-transparent shadow-none mb-0">
                                         <div class="card-body p-3">
                                             <div class="d-flex mb-3 align-items-center justify-content-between">
                                                 <span class="theme-avtar avtar avtar-sm bg-light-dark rounded-1">
