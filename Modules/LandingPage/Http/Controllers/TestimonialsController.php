@@ -111,7 +111,7 @@ class TestimonialsController extends Controller
         if ($request->testimonials_user_avtar) {
             $testimonials_user_avtar = time() . "-testimonials_user_avtar." . $request->testimonials_user_avtar->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'testimonials_user_avtar', $testimonials_user_avtar, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'testimonials_user_avtar', $testimonials_user_avtar, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }
@@ -149,7 +149,7 @@ class TestimonialsController extends Controller
         if ($request->testimonials_user_avtar) {
             $testimonials_user_avtar = time() . "-testimonials_user_avtar." . $request->testimonials_user_avtar->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'testimonials_user_avtar', $testimonials_user_avtar, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'testimonials_user_avtar', $testimonials_user_avtar, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }

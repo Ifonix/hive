@@ -114,7 +114,7 @@ class ScreenshotsController extends Controller
         if( $request->screenshots){
             $screenshots = time()."-screenshots." . $request->screenshots->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request,'screenshots',$screenshots,$dir,[]);
+            $path = LandingPageSetting::upload_file($request,'screenshots',$screenshots,$dir,[], true);
             if($path['flag']==0){
                 return redirect()->back()->with('error', __($path['msg']));
             }
@@ -149,7 +149,7 @@ class ScreenshotsController extends Controller
         if( $request->screenshots){
             $screenshots = time()."-screenshots." . $request->screenshots->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request,'screenshots',$screenshots,$dir,[]);
+            $path = LandingPageSetting::upload_file($request,'screenshots',$screenshots,$dir,[], true);
             if($path['flag']==0){
                 return redirect()->back()->with('error', __($path['msg']));
             }

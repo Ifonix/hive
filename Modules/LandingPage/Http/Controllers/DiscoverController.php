@@ -115,7 +115,7 @@ class DiscoverController extends Controller
         if ($request->discover_logo) {
             $discover_logo = time() . "-discover_logo." . $request->discover_logo->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'discover_logo', $discover_logo, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'discover_logo', $discover_logo, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }
@@ -153,7 +153,7 @@ class DiscoverController extends Controller
         if ($request->discover_logo) {
             $discover_logo = time() . "-discover_logo." . $request->discover_logo->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'discover_logo', $discover_logo, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'discover_logo', $discover_logo, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }

@@ -151,7 +151,7 @@ class FeaturesController extends Controller
         if ($request->feature_logo) {
             $feature_logo = time() . "-feature_logo." . $request->feature_logo->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'feature_logo', $feature_logo, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'feature_logo', $feature_logo, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }
@@ -186,7 +186,7 @@ class FeaturesController extends Controller
         if ($request->highlight_feature_image) {
             $highlight_feature_image = "highlight_feature_image." . $request->highlight_feature_image->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'highlight_feature_image', $highlight_feature_image, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'highlight_feature_image', $highlight_feature_image, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }
@@ -226,7 +226,7 @@ class FeaturesController extends Controller
         if ($request->other_features_image) {
             $other_features_image = time() . "-other_features_image." . $request->other_features_image->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'other_features_image', $other_features_image, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'other_features_image', $other_features_image, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }
@@ -269,7 +269,7 @@ class FeaturesController extends Controller
         if ($request->other_features_image) {
             $other_features_image = time() . "-other_features_image." . $request->other_features_image->getClientOriginalExtension();
             $dir        = 'uploads/landing_page_image';
-            $path = LandingPageSetting::upload_file($request, 'other_features_image', $other_features_image, $dir, []);
+            $path = LandingPageSetting::upload_file($request, 'other_features_image', $other_features_image, $dir, [], true);
             if ($path['flag'] == 0) {
                 return redirect()->back()->with('error', __($path['msg']));
             }

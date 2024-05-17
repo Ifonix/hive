@@ -120,7 +120,7 @@ class LandingPageSetting extends Model
     }
 
 
-    public static function upload_file($request, $key_name, $name, $path, $custom_validation = [])
+    public static function upload_file($request, $key_name, $name, $path, $custom_validation = [], $isPublic = false)
     {
         try {
             $settings = Utility::getStorageSetting();
@@ -191,7 +191,9 @@ class LandingPageSetting extends Model
                     $name = $name;
 
                     if ($settings['storage_setting'] == 'local') {
-                        $request->$key_name->move(storage_path($path), $name);
+                        $upload_path = ($isPublic) ? public_path($path) : storage_path($path);
+                        $request->$key_name->move($upload_path, $name);
+                        // $request->$key_name->move(storage_path($path), $name);
                         $path = $path . $name;
                     } else if ($settings['storage_setting'] == 'wasabi') {
 
